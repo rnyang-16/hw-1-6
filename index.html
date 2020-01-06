@@ -4,9 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Code Quiz</title>
+    <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" media="all" href="./css/light.css" id="theme_css" />
 </head>
+
 <body>
+    <!-- <audio id="correct_audio">
+      <source src="audio/En-us-correct.ogg" type="audio/ogg">
+    </audio>
+    <audio id="wrong_audio">
+      <source src="audio/En-us-wrong.ogg" type="audio/ogg">
+    </audio> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="nav-item nav-link" href="#" id="highscore_button">View Highscores</a>
+        <div class="navbar-collapse justify-content-end" id="navbarNav02">Score: 0</div>
+        <div class="navbar-collapse justify-content-end" id="navbarNav01">Time: 0</div>   
+    </nav>
+
+    <div class="container" id="instruction">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            Coding Quiz Chanllange 
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-sm-7">
+          Try to answer the following code-rated questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
+        </div>
+      </div> 
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto" id="button">
+          <button>Star Quiz</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="invisible">
+      <div class="container" id="questionArea">
+        <h id="question"></h>
+        <ul id="choices">
+        </ul>
+        <div id="result"></div>
+      </div>
+    </div>
+
+    <div class="invisible">
+      <div class="p-3" id="final_score">
+        <form class="p-3">
+            <div class="form-group">
+                <p>All done!</p>
+                <label for="initialInput">Your Initials</label>
+                <input type="email" class="form-control" id="initialInput" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" id="upload_score" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="invisible">
+      <table class="table p-3 m-3" id="highscore_table">
+        <thead>
+          <tr>
+          <th scope="col">Initial</th>
+          <th scope="col">Score</th>
+          </tr>
+        </thead>
+        
+        <tbody id="highscore_tbody">
+            
+        </tbody>
+      </table>        
+    </div>
+
+
+
+
     <script src="script.js"></script>
     
 </body>
