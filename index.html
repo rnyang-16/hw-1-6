@@ -1,90 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Code Quiz</title>
-    <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="all" href="./css/light.css" id="theme_css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Code Quiz</title>
+
+  <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" media="all" href="./css/light.css" id="theme_css" />
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- <audio id="correct_audio">
-      <source src="audio/En-us-correct.ogg" type="audio/ogg">
-    </audio>
-    <audio id="wrong_audio">
-      <source src="audio/En-us-wrong.ogg" type="audio/ogg">
-    </audio> -->
+  <audio id="correct_audio">
+    <source src="audio/En-us-correct.ogg" type="audio/ogg">
+  </audio>
+  <audio id="wrong_audio">
+    <source src="audio/En-us-wrong.ogg" type="audio/ogg">
+  </audio>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="nav-item nav-link" href="#" id="highscore_button">View Highscores</a>
-        <div class="navbar-collapse justify-content-end" id="navbarNav02">Score: 0</div>
-        <div class="navbar-collapse justify-content-end" id="navbarNav01">Time: 0</div>   
-    </nav>
-
-    <div class="container" id="instruction">
-      <div class="row justify-content-md-center">
-        <div class="col-md-auto">
-            Coding Quiz Chanllange 
-        </div>
-      </div>
-
-      <div class="row justify-content-md-center">
-        <div class="col-sm-7">
-          Try to answer the following code-rated questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
-        </div>
-      </div> 
-
-      <div class="row justify-content-md-center">
-        <div class="col-md-auto" id="button">
-          <button>Star Quiz</button>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="btn btn-primary m-2" href="#" id="highscore_button">View Highscores</a>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle m-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Theme
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Light</a>
+          <a class="dropdown-item" href="#">Dark</a>
       </div>
     </div>
-    
-    <div class="invisible">
-      <div class="container" id="questionArea">
-        <h id="question"></h>
-        <ul id="choices">
-        </ul>
-        <div id="result"></div>
+    <div class="navbar-collapse justify-content-end" id="navbarNav02">Score: 0</div>
+    <div class="navbar-collapse justify-content-end" id="navbarNav01">Time left: 0</div>
+  </nav>
+
+  <div class="container" id="instruction">
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+          Coding Quiz Chanllange 
       </div>
     </div>
 
-    <div class="invisible">
-      <div class="p-3" id="final_score">
-        <form class="p-3">
-            <div class="form-group">
-                <p>All done!</p>
-                <label for="initialInput">Your Initials</label>
-                <input type="email" class="form-control" id="initialInput" aria-describedby="emailHelp">
-            </div>
-            <button type="submit" id="upload_score" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="row justify-content-md-center">
+      <div class="col-sm-7">
+        Try to answer the following code-rated questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!
+      </div>
+    </div> 
+
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto" id="button">
+        <button>Star Quiz</button>
       </div>
     </div>
-
-    <div class="invisible">
-      <table class="table p-3 m-3" id="highscore_table">
-        <thead>
-          <tr>
-          <th scope="col">Initial</th>
-          <th scope="col">Score</th>
-          </tr>
-        </thead>
-        
-        <tbody id="highscore_tbody">
-            
-        </tbody>
-      </table>        
+  </div>
+  
+  <div class="invisible">
+    <div class="container" id="questionArea">
+      <h id="question"></h>
+      <ul id="choices">
+      </ul>
+      <div id="result"></div>
     </div>
+  </div>
 
+  <div class="invisible">
+    <div class="p-3" id="final_score">
+      <form class="p-3">
+          <div class="form-group">
+              <p>All done!</p>
+              <label for="initialInput">Your Initials</label>
+              <input type="email" class="form-control" id="initialInput" aria-describedby="emailHelp">
+          </div>
+          <button type="submit" id="upload_score" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
 
-
-
-    <script src="script.js"></script>
-    
+  <div class="invisible">
+    <table class="table p-3 m-3" id="highscore_table">
+      <thead>
+        <tr>
+        <th scope="col">Initial</th>
+        <th scope="col">Score</th>
+        </tr>
+      </thead>
+      
+      <tbody id="highscore_tbody">
+          
+      </tbody>
+    </table>
+    <button type="submit" id="clear_history" class="btn btn-primary m-3">Clear History</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
